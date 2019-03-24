@@ -10,7 +10,6 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
 
 public class CRUD {
 	
@@ -34,7 +33,7 @@ public class CRUD {
 	static void FindAll()
 	{ 
 		FindIterable<Document> iterDoc = collection.find(); 
-		Iterator it = iterDoc.iterator();
+		Iterator<Document> it = iterDoc.iterator();
 		while (it.hasNext()) 
 		{  
 			System.out.println(it.next()); 

@@ -26,6 +26,7 @@ public class ReadFile {
 					if(!list.contains(name[i])) list.add(name[i]);
 				}
 			}
+			br.close();
 			System.out.println(set);
 			System.out.println(list);
 		} catch (Exception e) {
