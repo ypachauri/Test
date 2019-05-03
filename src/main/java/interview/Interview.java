@@ -1,14 +1,19 @@
 package interview;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Interview {
 	
@@ -137,6 +142,20 @@ public class Interview {
         }
     }
     
+    static void MapSortByKey()
+    {
+    	Map<String, Integer> mp = new HashMap<String, Integer>();
+		mp.put("Yash", 1);
+		mp.put("Akash", 2);
+		mp.put("Sonu", 3);
+		mp.put("Kushal", 4);
+		mp.put("Deepak", 5);
+		
+		Map<String, Integer> tmp = new TreeMap<String, Integer>(Collections.reverseOrder());
+		tmp.putAll(mp);
+		System.out.println(tmp);
+    }
+    
     static void MapSortByValues()
     {
         Map<String, Integer> map = new HashMap<String, Integer>();
@@ -146,6 +165,7 @@ public class Interview {
         map.put("Unix", 67);
         map.put("MAC", 26);
         map.put("Why this kolavari", 93);
+        
         Set<Entry<String, Integer>> set = map.entrySet();
         List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
         Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
@@ -160,59 +180,48 @@ public class Interview {
         }
     }
     
-    static void DuplicatesListWithCount()
+    static void ReadFileAndCount()
     {
-    	List<String> list = Arrays.asList("abc", "xyz", "abc", "type", "rtrtr", "ppp", "xyz", "rtr", "pop", "xyz", "abc", "xyz", "abc", "xyz");
-    	Map<String, Integer> mp = new HashMap<>();
-    	List<String> l = new ArrayList<>();
-		int count=0;
-		for(int i=0; i < list.size(); i++)
-		{
-			if(!l.contains(list.get(i)))
-        	{
-        		count=1;
-	        	String temp=list.get(i);
-	            for(int j=i+1; j<list.size(); j++)
-	            {
-	                if(temp.equals(list.get(j)))
-	                {
-	                	l.add(temp);
-	                    count++;
-	                    mp.put(list.get(i),count);
-	                    System.out.println(temp+" === "+count);
-	                }
-	            }
-        	}
+    	File f = new File("D://sample.txt");
+		Set<String> set = new HashSet<>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(f));
+			String line=null;
+			while((line = br.readLine()) != null)
+			{
+				String[] name = line.split(" ");
+				for(int i=0; i<name.length;i++)
+				{
+					set.add(name[i]);
+				}
+			}
+			br.close();
+			System.out.println(set);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println(mp);
     }
     
-    static void Test()
+    static void ElementsCount()
     {
     	List<String> list = Arrays.asList("abc", "xyz", "abc", "type", "rtrtr", "ppp", "xyz", "rtr", "pop", "xyz", "abc", "xyz", "abc", "xyz");
-    	Map<String, Integer> mp = new HashMap<>();
-    	  int count;
-    	  for(int a=0; a < list.size(); a++)
-    	  {
-    	  count=1;
-    	  	for(int b=0; b<a;b++)
-    	    {
-    	    	if(list.get(a).equals(list.get(b)))
-    	      { 
-    	      
-    	        if(mp.containsValue(mp.get(list.get(a))))
-    	        	count++;
-    	      	mp.put(list.get(a),count);
-    	      	System.out.println(list.get(a)+"==="+count);
-    	      }
-    	    }
-    	  }
-    	System.out.println(mp);
+    	Map<String, Integer> map = new HashMap<>();
+    	for (int i=0; i<list.size(); i++) {
+			if (map.containsKey(list.get(i))) {
+				int count = map.get(list.get(i));
+				map.put(list.get(i), count+1);
+			}
+			else {
+				map.put(list.get(i), 1);
+			}
+		}
+		System.out.println(map);
     }
     
     public static void main(String[] args) 
     {
-        int val=10;
+        int val=11;
         switch (val) {
 		case 1:
 			ReverseArrayInPlace(6);
@@ -239,10 +248,13 @@ public class Interview {
 			MapSortByValues();
 			break;
 		case 9:
-			DuplicatesListWithCount();
+			MapSortByKey();
 			break;
 		case 10:
-			Test();
+			ReadFileAndCount();
+			break;
+		case 11:
+			ElementsCount();
 			break;
 		default:
 			break;
