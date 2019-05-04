@@ -137,8 +137,8 @@ public class Interview {
                     arr[j] = arr[j+1]; 
                     arr[j+1] = temp; 
                 }
-        		System.out.println(Arrays.toString(arr));
             }
+            System.out.println(Arrays.toString(arr));
         }
     }
     
@@ -221,7 +221,7 @@ public class Interview {
     
     public static void main(String[] args) 
     {
-        int val=11;
+        int val=7;
         switch (val) {
 		case 1:
 			ReverseArrayInPlace(6);
