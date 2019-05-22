@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -219,9 +220,58 @@ public class Interview {
 		System.out.println(map);
     }
     
+    static void AllSubstrings()
+    {
+    	String s = "yash";
+    	for(int i = 0; i < s.length(); i++)
+    	{
+	    	for(int j = i; j < s.length(); j++)
+	    	{
+	    		for(int k = i; k <= j; k++)
+	    		{
+	    			System.out.print(s.charAt(k));
+	    		}
+	    		System.out.println();
+	    	}
+    	}
+    }
+    
+    static void DateSort()
+    {
+    	List<String> dates = new ArrayList<>();
+    	dates.add("03/05/2019");
+    	dates.add("05/05/2019");
+    	dates.add("01/05/2019");
+    	dates.add("02/05/2019");
+    	dates.add("04/05/2019");
+    	Collections.sort(dates, new Comparator<String>() {
+    		public int compare(String o1, String o2) { return o1.compareTo(o2); };
+		});
+    	System.out.println(dates);
+    }
+    
+    static void FindString()
+    {
+    	String s1 = "abcNjhgAhGjhfhAljhRkhgRbhjbevfhO";
+    	String s2 = "NAGARRO";
+    	String s3 = "";
+    	int s2count=0,index=0;
+    	for(int i=0; i < s1.length(); i++)
+    	{
+    		if(s2count<s2.length() && s1.charAt(i)==s2.charAt(s2count))
+    		{
+    			if(s3.length()==0) index=i;
+    			s3 += s1.charAt(i);
+    			s2count++;
+    		}
+    	}
+    	if(s2.length()==s3.length())
+    		System.out.println(s2count+", "+s3+", Found at index "+index);
+    }
+    
     public static void main(String[] args) 
     {
-        int val=7;
+        int val=14;
         switch (val) {
 		case 1:
 			ReverseArrayInPlace(6);
@@ -256,7 +306,17 @@ public class Interview {
 		case 11:
 			ElementsCount();
 			break;
+		case 12:
+			AllSubstrings();
+			break;
+		case 13:
+			DateSort();
+			break;
+		case 14:
+			FindString();
+			break;
 		default:
+			AllSubstrings();
 			break;
 		}
     }
