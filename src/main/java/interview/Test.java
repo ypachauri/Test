@@ -9,7 +9,7 @@ import java.util.Set;
 public class Test {
 	public static void main(String[] args)
 	{
-		Integer[] arr={1,1,2,3,4,5,5,6,7,8};
+		/*Integer[] arr={1,1,2,3,4,5,5,6,7,8};
 		Set<Integer> set = new HashSet<>(Arrays.asList(arr));
 		List<Integer> lst = new ArrayList<>(Arrays.asList(arr));
 		Integer[] arr2 = lst.toArray(new Integer[lst.size()]);
@@ -23,6 +23,11 @@ public class Test {
 		System.out.println(Arrays.toString(arr2));
 		System.out.println(Arrays.toString(arr3));
 		System.out.println(list);
-		System.out.println(Arrays.toString(arr4));
+		System.out.println(Arrays.toString(arr4));*/
+		int arr[] = {1,2,3,4,5};
+		for(int i = 0; i < arr.length; i++)
+		{
+			System.out.print(arr[i]);
+		}
 	}
 }
