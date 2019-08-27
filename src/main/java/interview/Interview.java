@@ -1,3 +1,14 @@
+/*
+ 
+ * 1. core java basics
+ * 2. threading, collection, exception
+ * 3. programs
+ 
+ * 4. Advance java (Jsp Servlets)
+ * 5. Database
+ * 6. Spring, hibernate
+
+ */
 package interview;
 
 import java.io.BufferedReader;
@@ -7,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -125,22 +135,20 @@ public class Interview {
     
     static void BubbleSort()
     {
-        int[] arr={99, 88, 55, 77, 1, 66};
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++) 
-        {
-            for (int j = 0; j < n-i-1; j++) 
-            {
-                if (arr[j] > arr[j+1]) 
-                { 
-                    // swap arr[j+1] and arr[j] 
-                    int temp = arr[j]; 
-                    arr[j] = arr[j+1]; 
-                    arr[j+1] = temp; 
-                }
-            }
-            System.out.println(Arrays.toString(arr));
-        }
+    	int[] arr = {5,9,1,4,2,3};
+		for(int i=0; i < arr.length; i++)
+		{
+			for(int j=0; j < arr.length; j++)
+			{
+				if(arr[i]<arr[j])
+				{
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		System.out.println(Arrays.toString(arr));
     }
     
     static void MapSortByKey()
@@ -269,9 +277,24 @@ public class Interview {
     		System.out.println(s2count+", "+s3+", Found at index "+index);
     }
     
+    static void PrintArrayInOneLoop()
+	{
+		int n = 5, k = 0;
+		for(int i = 1; i <= n*2 ; i++)
+		{
+			if(i <= n)
+				System.out.println(i);
+			else
+			{
+				k = k+2;
+				System.out.println(((i-k)+1));
+			}
+		}
+	}
+    
     public static void main(String[] args) 
     {
-        int val=14;
+        int val=1;
         switch (val) {
 		case 1:
 			ReverseArrayInPlace(6);
@@ -314,6 +337,9 @@ public class Interview {
 			break;
 		case 14:
 			FindString();
+			break;
+		case 15:
+			PrintArrayInOneLoop();
 			break;
 		default:
 			AllSubstrings();
