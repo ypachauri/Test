@@ -327,10 +327,47 @@ public class Interview {
     	users.forEach(System.out::println);
     }
     
+    static void PrimeNumber()
+    {
+    	int num = 55;
+    	boolean flag = false;
+    	for(int i = 2; i < num; i++)
+    	{
+    		if(num % i == 0)
+    		{
+    			flag = false;
+    			break;
+    		}
+    		else flag = true;
+    	}
+    	if(flag) System.out.println("Prime");
+    	else System.out.println("Not Prime");
+    }
+    
+    static void Prime()
+    {
+    	int num=55,b,c;
+    	b=1;
+    	c=0;
+    		
+    		
+    			while( num>=b )
+    			{
+    			if((num%b)==0)
+    				{c=c+1;
+    				b++;}
+    			}
+    			if(c==2)
+    			System.out.print("No is Prime ");
+    			else
+    			System.out.print("No is not  Prime ");
+    			
+    		}
+    
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "ShowDuplicatesFromArray";
+	        String methodName = "Prime";
 	        int param = 0;
 	        Class c = Class.forName("interview.Interview");
 			Method m = c.getDeclaredMethod(methodName, null);
