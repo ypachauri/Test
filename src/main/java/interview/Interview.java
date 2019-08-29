@@ -259,6 +259,7 @@ public class Interview {
     		}
     	}
     	if(name.length() == result.length()) System.out.println("Result := "+result+"\nAt Index := "+index);
+    	else System.out.println("String not found");
     }
     // Important
     static void PrintArrayInOneLoop()
