@@ -42,4 +42,21 @@ public class User {
 	public void setEmployee(boolean isEmployee) {
 		this.isEmployee = isEmployee;
 	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if(this == obj) 
+            return true;
+		if(obj == null || obj.getClass()!= this.getClass()) 
+            return false;
+		User user = (User) obj; 
+        return (user.name.equals(this.name) && user.id == this.id); 
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return this.id;
+	}
 }

@@ -4,9 +4,9 @@
  * 2. threading, collection, exception
  * 3. programs
  
- * 4. Advance java (Jsp Servlets)
+ * 4. Spring, hibernate
  * 5. Database
- * 6. Spring, hibernate
+ * 6. Advance java (Jsp Servlets)
 
  */
 package interview;
@@ -76,47 +76,33 @@ public class Interview {
     static void ShowDuplicatesFromArray()
     {
         int[] arr = { 0, 3, 1, 2, 3, 5, 2, 3, 0, 2, 0, 5, 3 };
-        int[] result = new int[arr.length];
-        result[0] = arr[0];
-        int count = 1;
-        boolean flag = false;
-        for(int i = 0; i < arr.length; i++)
-        {
-            for(int j = i; j < arr.length; j++)
-            {
-                
-                if(arr[i] == arr[j])
-                {
-                	flag = true;
-                    break;
-                }
-                else flag = false;
-            }
-            if(flag)
-            {
-            	result[count] = arr[i];
-            	count++;
-            }
-        }
-        System.out.println(Arrays.toString(result));
-        /*List<Integer> list = new ArrayList<>();
-        int count=0;
-        for(int j=0;j<arr.length;j++) {
-        	if(!list.contains(arr[j]))
-        	{
-	        	count=1;
-	            for(int k =j+1;k<arr.length;k++) {
-	                if(arr[j]==arr[k]) {
-	                	list.add(arr[j]);
-	                    count++;
-	                    //System.out.println(arr[j]+" == "+count);
-	                }
-	            }
-        	}
-            if(count>1)
-               System.out.println(arr[j]);
-            count = 0;
-        }*/
+        Set<Integer> set = new HashSet();
+        for(int i = 0; i < arr.length; i++) set.add(arr[i]);
+        System.out.println(set);
+        
+//        int[] result = new int[arr.length];
+//        result[0] = arr[0];
+//        int count = 1;
+//        boolean flag = false;
+//        for(int i = 0; i < arr.length; i++)
+//        {
+//            for(int j = 0; j < i; j++)
+//            {
+//                
+//                if(arr[i] == arr[j])
+//                {
+//                	flag = true;
+//                    break;
+//                }
+//                else flag = false;
+//            }
+//            if(flag)
+//            {
+//            	result[count] = arr[i];
+//            	count++;
+//            }
+//        }
+//        System.out.println(Arrays.toString(result));
     }
     
     static void DuplicatesInArrayOnth()
@@ -299,18 +285,19 @@ public class Interview {
 		System.out.println("x = "+x+", y = "+y);
 	}
     // Important
-    static void NumericPalindrome()
-	{
-		int num = 565, result = 0, reminder = 0, originalNum = num;
-		while(num != 0)
-		{
-			reminder = num % 10;
-			result = result * 10 + reminder;
-			num = num / 10;
-		}
-		if(result == originalNum) System.out.println("Palindrome");
+    static void ReverseInteger()
+    {
+    	int num = 121, reverse = 0, originalNum = num;
+    	while(num != 0)
+    	{
+    		reverse = reverse * 10;
+    		reverse = reverse + num % 10;
+    		num = num / 10;
+    	}
+    	if(originalNum == reverse) System.out.println("Palindrome");
 		else System.out.println("Not Palindrome");
-	}
+    	System.out.println("Reverse Number is := " + reverse);
+    }
     
     static void ObjectSorting()
     {
@@ -329,45 +316,60 @@ public class Interview {
     
     static void PrimeNumber()
     {
-    	int num = 55;
+    	int num = 3;
     	boolean flag = false;
-    	for(int i = 2; i < num; i++)
+    	for(int i = 2; i <= num/2; i++)
     	{
     		if(num % i == 0)
     		{
-    			flag = false;
+    			flag = true;
     			break;
     		}
-    		else flag = true;
     	}
-    	if(flag) System.out.println("Prime");
+    	if(!flag) System.out.println("Prime");
     	else System.out.println("Not Prime");
     }
     
-    static void Prime()
+    static void EqualsHashCodeTest()
     {
-    	int num=55,b,c;
-    	b=1;
-    	c=0;
-    		
-    		
-    			while( num>=b )
-    			{
-    			if((num%b)==0)
-    				{c=c+1;
-    				b++;}
-    			}
-    			if(c==2)
-    			System.out.print("No is Prime ");
-    			else
-    			System.out.print("No is not  Prime ");
-    			
-    		}
+    	User user = new User(3, "Yash", "Tester", true);
+    	User user2 = new User(3, "Yash", "Tester", true);
+    	System.out.println("User1 HashCode := "+user.hashCode()+"\nUser2 HashCode := "+user2.hashCode());
+    	Map<User, String> map = new HashMap<User, String>(); 
+        map.put(user, "CSE"); 
+        map.put(user2, "IT");
+        map.entrySet().forEach(System.out::println);
+    }
+    
+    static void PrePostIncrement()
+    {
+    	int i = 1;
+    	System.out.println("i \t:= "+i);
+    	System.out.println("i++ \t:= "+i++);
+    	System.out.println("i \t:= "+i);
+    	System.out.println("++i \t:= "+(++i));
+    	System.out.println("i \t:= "+i);
+    	
+//    	++i increments and then uses the variable.
+//    	i++ uses and then increments the variable.
+    }
+    
+    static void Fabonacci()
+    {
+    	int prev = 0, next = 1, sum = 0;
+    	for(int i = 0; i < 10; i++)
+    	{
+    		sum = prev + sum;
+    		prev = next;
+    		next = sum;
+    		System.out.println(sum);
+    	}
+    }
     
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "Prime";
+	        String methodName = "Fabonacci";
 	        int param = 0;
 	        Class c = Class.forName("interview.Interview");
 			Method m = c.getDeclaredMethod(methodName, null);
@@ -425,7 +427,7 @@ public class Interview {
 			SwipeWithoutUsingThirdVar();
 			break;
 		case 15:
-			NumericPalindrome();
+			ReverseInteger();
 			break;
 		case 16:
 			AllSubstrings();
