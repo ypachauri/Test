@@ -126,7 +126,6 @@ public class Interview {
         {
             for(int j = 0; j < i; j++)
             {
-                
                 if(arr[i] == arr[j])
                 {
                 	flag = false;
@@ -297,7 +296,7 @@ public class Interview {
     	}
     	if(originalNum == reverse) System.out.println("Palindrome");
 		else System.out.println("Not Palindrome");
-    	System.out.println("Reverse Number is := " + reverse);
+    	System.out.println("Reversed Number is := " + reverse);
     }
     
     static void ObjectSorting()
