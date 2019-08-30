@@ -366,10 +366,26 @@ public class Interview {
     	}
     }
     
+    static void PascalTriangle()
+    {
+    	int rows = 10;
+    	for(int i = 0; i < rows; i++)
+    	{
+    		int number = 1;
+    		System.out.format("%" + (rows-i) * 2 + "s" , "");
+    		for(int j = 0; j <= i; j++)
+    		{
+    			System.out.format("%4d",number);
+    			number = number * (i - j) / (j + 1);
+    		}
+    		System.out.println();
+    	}
+    }
+    
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "Fabonacci";
+	        String methodName = "PascalTriangle";
 	        int param = 0;
 	        Class c = Class.forName("interview.Interview");
 			Method m = c.getDeclaredMethod(methodName, null);
