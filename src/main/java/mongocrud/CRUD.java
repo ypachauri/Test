@@ -153,11 +153,7 @@ public class CRUD {
 	}
 
 	private static User createUser() {
-		User u = new User();
-		u.setId(1);
-		u.setName("Yash");
-		u.setEmployee(true);
-		u.setRole("Java Developer");
-		return u;
+		User user = new User(1,"Yash","Java Devloper",true);
+		return user;
 	}
 }
