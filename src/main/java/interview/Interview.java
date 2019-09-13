@@ -261,7 +261,7 @@ public class Interview {
     	else System.out.println("String not found");
     }
     // Important
-    static void PrintArrayInOneLoop()
+    static void PrintInOneLoop()
 	{
 		int n = 5, k = 0;
 		for(int i = 1; i <= n*2 ; i++)
@@ -279,10 +279,11 @@ public class Interview {
     static void SwipeWithoutUsingThirdVar()
 	{
 		int x = 5, y = 10;
+		System.out.println("Before : x := "+x+", y := "+y);
 		x = x + y;
 		y = x - y;
 		x = x - y;
-		System.out.println("x = "+x+", y = "+y);
+		System.out.println("After :  x := "+x+", y := "+y);
 	}
     // Important
     static void ReverseInteger()
@@ -382,10 +383,22 @@ public class Interview {
     	}
     }
     
+    static void NumberPyramid()
+    {
+    	for(int i = 1; i <= 5; i++)
+		{
+			for(int j = 1; j <= i; j++)
+			{
+				System.out.print(j*i+" ");
+			}
+			System.out.println();
+		}
+    }
+    
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "PascalTriangle";
+	        String methodName = "PrintInOneLoop";
 	        int param = 0;
 	        Class c = Class.forName("interview.Interview");
 			Method m = c.getDeclaredMethod(methodName, null);
@@ -437,7 +450,7 @@ public class Interview {
 			FindString();
 			break;
 		case 13:
-			PrintArrayInOneLoop();
+			PrintInOneLoop();
 			break;
 		case 14:
 			SwipeWithoutUsingThirdVar();
