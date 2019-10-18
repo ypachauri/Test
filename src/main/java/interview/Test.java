@@ -23,12 +23,13 @@ public class Test {
 		System.out.println(Arrays.toString(arr2));
 		System.out.println(Arrays.toString(arr3));
 		System.out.println(list);
-		System.out.println(Arrays.toString(arr4));*/
+		System.out.println(Arrays.toString(arr4));
 		int arr[] = {1,2,3,4,5};
 		for(int i = 0; i < arr.length; i++)
 		{
 			System.out.print(arr[i]);
-		}
+		}*/
+		test();
 	}
 	public static void test()
 	{
