@@ -333,8 +333,8 @@ public class Interview {
     
     static void EqualsHashCodeTest()
     {
-    	User user = new User(3, "Yash", "Tester", true);
-    	User user2 = new User(3, "Yash", "Tester", true);
+    	User user = new User(3, "Yash", "Dev", true);
+    	User user2 = new User(3, "Yash", "Dev", true);
     	System.out.println("User1 HashCode := "+user.hashCode()+"\nUser2 HashCode := "+user2.hashCode());
     	Map<User, String> map = new HashMap<User, String>(); 
         map.put(user, "CSE"); 
@@ -395,10 +395,69 @@ public class Interview {
 		}
     }
     
+    static void FabonacciRecursive(int prv, int next, int sum, int num)
+	{
+		if(prv < num)
+		{
+//			System.out.println(sum);
+			prv = next;
+			next = sum;
+			sum = next + prv;
+			FabonacciRecursive(prv, next, sum, num);
+		}
+	}
+    
+    static void PatternPyramid()
+    {
+    	int num = 5;
+    	for(int i = 0; i < num; i++)
+    	{
+    		for(int j = 0; j <= i; j++)
+    		{
+    			System.out.print("*");
+    		}
+    		System.out.println();
+    	}
+    }
+    
+    static void PatternPyramid2()
+    {
+    	int num = 5;
+    	for(int i = 0; i < num; i++)
+    	{
+    		for(int k = num-1; k > i; k--)
+    		{
+    			System.out.print(" ");
+    		}
+    		for(int j = 0; j <= i; j++)
+    		{
+    			System.out.print("*");
+    		}
+    		System.out.println();
+    	}
+    }
+    
+    static void PatternPyramid3()
+    {
+    	int num = 5, k = 0;
+    	for(int i = 1; i < num; i++)
+    	{
+    		int jc = 0;
+    		k += i-1;
+    		for(int j = 1; j <= i+k; j++)
+    		{
+    			jc++;
+    			System.out.print("*");
+    		}
+    		System.out.print(" "+jc);
+    		System.out.println();
+    	}
+    }
+    
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "PrintInOneLoop";
+	        String methodName = "BubbleSort";
 	        int param = 0;
 	        Class c = Class.forName("interview.Interview");
 			Method m = c.getDeclaredMethod(methodName, null);

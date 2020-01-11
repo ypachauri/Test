@@ -2,9 +2,7 @@ package interview;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Test {
 	public static void main(String[] args)
@@ -24,10 +22,10 @@ public class Test {
 		System.out.println(Arrays.toString(arr3));
 		System.out.println(list);
 		System.out.println(Arrays.toString(arr4));*/
-		int arr[] = {1,2,3,4,5};
-		for(int i = 0; i < arr.length; i++)
-		{
-			System.out.print(arr[i]);
-		}
+		List<Integer> list = new ArrayList<>();
+		Integer[] arr = list.toArray(new Integer[list.size()]);
+		Integer a = 500;
+		Integer b = 500;
+		System.out.println(a==b);
 	}
 }
