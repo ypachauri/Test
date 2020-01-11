@@ -20,12 +20,6 @@ public class Test {
 		System.out.println(lst);
 		System.out.println(Arrays.toString(arr2));
 		System.out.println(Arrays.toString(arr3));
-		System.out.println(list);
-		System.out.println(Arrays.toString(arr4));*/
-		List<Integer> list = new ArrayList<>();
-		Integer[] arr = list.toArray(new Integer[list.size()]);
-		Integer a = 500;
-		Integer b = 500;
-		System.out.println(a==b);
+		System.out.println(list);*/
 	}
 }

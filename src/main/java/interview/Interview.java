@@ -454,6 +454,87 @@ public class Interview {
     	}
     }
     
+    static int customParseInt(String s)
+	{
+		int num = 0, n = 0;
+		for(int i = 0; i < s.length(); i++)
+		{
+			Character c = s.charAt(i);
+			switch (c) {
+			case '1':
+				n = 1;
+				break;
+			case '2':
+				n = 2;
+				break;
+			case '3':
+				n = 3;
+				break;
+			case '4':
+				n = 4;
+				break;
+			case '5':
+				n = 5;
+				break;
+			case '6':
+				n = 6;
+				break;
+			case '7':
+				n = 7;
+				break;
+			case '8':
+				n = 8;
+				break;
+			case '9':
+				n = 9;
+				break;
+			default:
+				n = 0;
+				break;
+			}
+			int k = 1;
+			for(int j = 1; j < s.length()-i; j++)
+			{
+				k *= 10;
+			}
+			num += n*k;
+		}
+		return num;
+	}
+	
+	static void OutputTest()
+	{
+		System.out.println("Hello "+10+20);
+		System.out.println(10+20+" Hello");
+		System.out.println("========");
+//		System.out.println("Hello "+10-20);
+		System.out.println(10-20+" Hello");
+		System.out.println("========");
+		System.out.println("Hello "+10*20);
+		System.out.println(10*20+" Hello");
+	}
+	
+	static void Pyramids()
+	{
+		int num = 5;
+		for(int i = 0; i < num; i++)
+		{
+			for(int k = num-1; k > i; k--)
+			{
+				System.out.print(" ");
+			}
+			for(int j = 0; j <= i; j++)
+			{
+				System.out.print("*");
+			}
+			for(int k = 0; k < i; k++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+    
     public static void main(String[] args) 
     {
     	try {
