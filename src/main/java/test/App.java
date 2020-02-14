@@ -1,4 +1,4 @@
-package test;
+package Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -127,6 +127,6 @@ public class App
 	
     public static void main( String[] args ) throws IOException
     {
-    	test6();
+    	test1();
     }
 }
