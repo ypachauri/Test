@@ -360,9 +360,9 @@ public class Interview {
     	int prev = 0, next = 1, sum = 0;
     	for(int i = 0; i < 10; i++)
     	{
-    		sum = prev + sum;
     		prev = next;
     		next = sum;
+    		sum = prev + sum;
     		System.out.println(sum);
     	}
     }
@@ -406,36 +406,6 @@ public class Interview {
 			FabonacciRecursive(prv, next, sum, num);
 		}
 	}
-    
-    static void PatternPyramid()
-    {
-    	int num = 5;
-    	for(int i = 0; i < num; i++)
-    	{
-    		for(int j = 0; j <= i; j++)
-    		{
-    			System.out.print("*");
-    		}
-    		System.out.println();
-    	}
-    }
-    
-    static void PatternPyramid2()
-    {
-    	int num = 5;
-    	for(int i = 0; i < num; i++)
-    	{
-    		for(int k = num-1; k > i; k--)
-    		{
-    			System.out.print(" ");
-    		}
-    		for(int j = 0; j <= i; j++)
-    		{
-    			System.out.print("*");
-    		}
-    		System.out.println();
-    	}
-    }
     
     static void PatternPyramid3()
     {
@@ -534,22 +504,90 @@ public class Interview {
 			System.out.println();
 		}
 	}
+	
+	static void CountChars()
+	{
+		String s = "aaahhcccddaah";
+		char[] c = s.toCharArray();
+		int[] freq = new int[c.length];
+		for(int i = 0; i < s.length(); i++)
+		{
+			freq[i] = 1;
+			for(int j = i+1; j < s.length(); j++)
+			{
+				if(c[i]==c[j])
+				{
+					freq[i]++;
+					c[j] = '0';
+				}
+			}
+		}
+//		for(int i = 0; i <s.length(); i++) {  
+//            freq[i] = 1;  
+//            for(int j = i+1; j <s.length(); j++) {  
+//                if(c[i] == c[j]) {  
+//                    freq[i]++;  
+//                      
+//                    //Set string[j] to 0 to avoid printing visited character  
+//                    c[j] = '0';  
+//                }  
+//            }  
+//        }
+		for(int k = 0; k < freq.length; k++)
+		{
+			if(c[k] != ' ' && c[k] != '0')
+			System.out.print(c[k]+""+freq[k]);
+		}
+	}
+	
+	static void permutation(String perm, String word) 
+	{
+        if (word.isEmpty()) {
+            System.err.println(perm + word);
+
+        } else {
+            for (int i = 0; i < word.length(); i++) {
+                permutation(perm + word.charAt(i), word.substring(0, i) 
+                                        + word.substring(i + 1, word.length()));
+            }
+        }
+    }
+	
+	static String reverseString(String str) 
+	{
+		if(str.isEmpty()) {
+			return str;
+		}
+		return reverseString(str.substring(1))+str.charAt(0);
+	}
+	
+	static void Factorial(int num) 
+	{
+		int fact = 1;
+		for(int i = 1; i <= num; i++) 
+		{
+			fact = fact*i;
+		}
+		System.out.println(fact);
+	}
     
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "BubbleSort";
+	        String methodName = "CountChars";
 	        int param = 0;
 	        Class c = Class.forName("interview.Interview");
 			Method m = c.getDeclaredMethod(methodName, null);
-			m.invoke(c, null);
+//			m.invoke(c, null);
 //			Method m = c.getDeclaredMethod(methodName, int.class);
 //			m.invoke(c, param);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
+//    	permutation("","ABC");
+//    	System.out.println(reverseString("Yash"));
+    	Factorial(5);
         int val = 0;
         
         switch (val) {
