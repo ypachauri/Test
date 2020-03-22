@@ -182,5 +182,6 @@ public class App
         System.out.println(miss);
 //        System.out.println("Yash".substring(2,3));
 //    	System.out.println("apple".compareTo("appl"));
+    	test1();
     }
 }
