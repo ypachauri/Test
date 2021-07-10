@@ -1,21 +1,46 @@
 package interview;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+
 public class Test {
 	public static void main(String[] args)
 	{
-		/*Integer[] arr={1,1,2,3,4,5,5,6,7,8};
-		Set<Integer> set = new HashSet<>(Arrays.asList(arr));
-		List<Integer> lst = new ArrayList<>(Arrays.asList(arr));
-		Integer[] arr2 = lst.toArray(new Integer[lst.size()]);
-		Integer[] arr3 = set.toArray(new Integer[set.size()]);
-		
-		List<Integer> list = Arrays.asList(1, 2, 3, 4);
-		int[] arr4 = list.stream().mapToInt(i -> i).toArray();
-		System.out.println(Arrays.toString(arr));
-		System.out.println(set);
-		System.out.println(lst);
-		System.out.println(Arrays.toString(arr2));
-		System.out.println(Arrays.toString(arr3));
-		System.out.println(list);*/
+		Map mp = new ConcurrentHashMap<>();
+		mp.get(null);
+	}
+	
+	static void flatMap()
+	{
+		Map<String, List<String>> people = new HashMap<>();
+    	people.put("John", Arrays.asList("555-1123", "555-3389"));
+    	people.put("Mary", Arrays.asList("555-2243", "555-5264"));
+    	people.put("Steve", Arrays.asList("555-6654", "555-3242"));
+    	 
+    	List<String> phones = people.values().stream()
+    	  .flatMap(Collection::stream)
+    	    .collect(Collectors.toList());
+    	System.err.println(phones);
+	}
+	
+	static int finallyReturnTest()
+	{
+		try
+			{
+				int a = 10/2;
+				return 1;
+			} 
+			catch(Exception e)
+			{
+				return 2;
+			}
+			finally {
+				return 3;
+			}
 	}
 }
