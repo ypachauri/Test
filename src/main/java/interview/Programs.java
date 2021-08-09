@@ -85,6 +85,38 @@ public class Programs {
         System.out.println("Largest := "+largest+"\nSmallest := "+smallest);
     }
     
+    static void ShowDuplicatesFromArray()
+    {
+        int[] arr = { 0, 3, 1, 2, 3, 5, 2, 3, 0, 2, 0, 5, 3 };
+        Set<Integer> set = new HashSet<>();
+        for(int i = 0; i < arr.length; i++) set.add(arr[i]);
+        System.out.println(set);
+        
+//        int[] result = new int[arr.length];
+//        result[0] = arr[0];
+//        int count = 1;
+//        boolean flag = false;
+//        for(int i = 0; i < arr.length; i++)
+//        {
+//            for(int j = 0; j < i; j++)
+//            {
+//                
+//                if(arr[i] == arr[j])
+//                {
+//                	flag = true;
+//                    break;
+//                }
+//                else flag = false;
+//            }
+//            if(flag)
+//            {
+//            	result[count] = arr[i];
+//            	count++;
+//            }
+//        }
+//        System.out.println(Arrays.toString(result));
+    }
+    
     static void DuplicatesInArrayOnth()
     {
         int[] arr = { 1, 2, 3, 1, 3, 6, 6 };
@@ -563,6 +595,9 @@ public class Programs {
 			break;
 		case 2:
 			MissingFromArray();
+			break;
+		case 3:
+			ShowDuplicatesFromArray();
 			break;
 		case 4:
 			LargestSmallestFromArray();
