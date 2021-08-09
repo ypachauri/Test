@@ -1,12 +1,9 @@
 /*
  
- * 1. core java basics
- * 2. threading, collection, exception
- * 3. programs
- 
- * 4. Spring, hibernate
- * 5. Database
- * 6. Advance java (Jsp Servlets)
+ * 1. Core Java (Threading, Collection, Exception)
+ * 2. Spring Boot, Hibernate
+ * 3. Database
+ * 4. Programs
 
  */
 package interview;
@@ -60,6 +57,21 @@ public class Programs {
         }
     }
     
+    static void getMissingNoFromArray()
+    {
+    	int[] arr = { 1, 2, 3, 5 };
+        int n = arr.length + 1;
+        
+        int elements_sum = n * (n + 1) / 2;
+        int sum = 0;
+     
+        for(int i = 0; i < n - 1; i++)
+            sum += arr[i];
+        
+        int result = elements_sum - sum;     
+        System.out.println(result);;
+    }
+    
     static void LargestSmallestFromArray()
     {
         int[] arr = { 0, 3, 1, 2, 5, 9, 10, 4 };
@@ -76,7 +88,7 @@ public class Programs {
     static void ShowDuplicatesFromArray()
     {
         int[] arr = { 0, 3, 1, 2, 3, 5, 2, 3, 0, 2, 0, 5, 3 };
-        Set<Integer> set = new HashSet();
+        Set<Integer> set = new HashSet<>();
         for(int i = 0; i < arr.length; i++) set.add(arr[i]);
         System.out.println(set);
         
@@ -110,7 +122,9 @@ public class Programs {
         int[] arr = { 1, 2, 3, 1, 3, 6, 6 };
         for(int i = 0; i < arr.length; i++)
         {
-            if(arr[Math.abs(arr[i])] >= 0) arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
+            if(arr[Math.abs(arr[i])] >= 0) {
+            	arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
+            }
             else System.out.println(Math.abs(arr[i]));
         }
     }
@@ -573,21 +587,6 @@ public class Programs {
     
     public static void main(String[] args) 
     {
-    	try {
-	        String methodName = "CountChars";
-	        int param = 0;
-	        Class c = Class.forName("interview.Programs");
-			Method m = c.getDeclaredMethod(methodName, null);
-//			m.invoke(c, null);
-//			Method m = c.getDeclaredMethod(methodName, int.class);
-//			m.invoke(c, param);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//    	permutation("","ABC");
-//    	System.out.println(reverseString("Yash"));
-    	Factorial(5);
         int val = 0;
         
         switch (val) {
@@ -641,6 +640,19 @@ public class Programs {
 			break;
 		default:
 			break;
+		}
+        
+        try {
+	        String methodName = "getMissingNoFromArray";
+	        int param = 0;
+	        Class c = Class.forName("interview.Programs");
+			Method m = c.getDeclaredMethod(methodName, null);
+			m.invoke(c, null);
+//			Method m = c.getDeclaredMethod(methodName, int.class);
+//			m.invoke(c, param);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
     }
 }
