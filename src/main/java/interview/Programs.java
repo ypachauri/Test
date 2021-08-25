@@ -584,6 +584,26 @@ public class Programs {
 		}
 		System.out.println(fact);
 	}
+	
+	static void DuplicatesChars()
+    {
+		String[] input = {"book","cook","hook"};
+//		String[] output= {"o","k"};
+		Set<Character> set = new HashSet<>();
+		char[] t = input[0].toCharArray();
+		for(char c  : t)
+		{
+			for(int i = 1; i < input.length; i++)
+			{
+				String s = input[i];
+				if(s.contains(c+""))
+				{
+					set.add(c);
+				}
+			}
+		}
+		System.err.println(set);
+    }
     
     public static void main(String[] args) 
     {
