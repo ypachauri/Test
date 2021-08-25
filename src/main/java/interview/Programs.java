@@ -604,6 +604,20 @@ public class Programs {
 		}
 		System.err.println(set);
     }
+	
+	static void DuplicatesChars2()
+    {
+		String[] input = { "book", "hook", "cook" };
+		Set<String> output = new HashSet<>();
+		char[] input1 = input[0].toCharArray();
+		
+		for(char c : input1) {
+			if(Arrays.asList(input).stream().allMatch(e1 -> e1.contains(Character.toString(c)))) {
+				output.add(Character.toString(c));
+			}
+		}
+		System.err.println(output);
+    }
     
     public static void main(String[] args) 
     {
