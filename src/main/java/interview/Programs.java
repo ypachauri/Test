@@ -712,7 +712,7 @@ public class Programs {
 	
 	static void canFormPalindrome()
     {
-		String str = "Yash";
+		String str = "MMAAA";
         List<Character> list = new ArrayList<Character>();
  
         for (int i = 0; i < str.length(); i++)
@@ -740,8 +740,104 @@ public class Programs {
         	System.err.println("FALSE");
     }
 	
+	static void printpairs()
+    {
+		int arr[] = { 1, 4, 45, 6, 10, 8, 12 };
+		int sum = 16;
+        HashSet<Integer> s = new HashSet<Integer>();
+        for (int i = 0; i < arr.length; ++i)
+        {
+            int temp = sum - arr[i];
+ 
+            // checking for condition
+            if (s.contains(temp)) {
+                System.out.println(
+                    "Pair with given sum "
+                    + sum + " is (" + arr[i]
+                    + ", " + temp + ")");
+            }
+            s.add(arr[i]);
+        }
+    }
+	
+	static void countSubstrings()
+    {
+        String text = "AABCCAAADCBBAADBBC";
+        String str = "AA";
+ 
+        int count = text.split(str, -1).length - 1;
+        System.out.println(count);
+    }
+	
+	static void FirstNonRepeatedChar() {
+	     
+        String inputStr ="geeksforgeeks";
+
+        for(char i :inputStr.toCharArray()){
+//        	System.err.println(inputStr.indexOf(i)+" == "+inputStr.lastIndexOf(i)+" == "+i);
+	        if ( inputStr.indexOf(i) == inputStr.lastIndexOf(i)) {
+	            System.out.println("First non-repeating character is: "+i);
+	            break;
+	        }
+        }
+    }
+	
+	static void firstNonRepeatingNumber()
+    {
+		int arr[] = { 9, 4, 9, 26, 7, 4 }; 
+		int n = arr.length;
+		
+		for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j <= n; j++)
+            {
+//            	System.err.println(j+" == "+n+" == "+arr[i]);
+                if (j == n)
+                {
+                    System.out.println("First non-repeating element is: "+arr[i]);
+                    return;
+                }
+                if (j != i && arr[i] == arr[j])
+                {
+                    break;
+                }
+            }
+        }
+        System.out.println("All the elements are repeating.");
+    }
+	
+	static void rotateArray()
+	{
+		char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i' }; 
+		int n = arr.length;
+		int k = 3;
+		
+		for (int i = 0; i < k; i++) {
+            for (int j = n - 1; j > 0; j--) {
+                // move each number by 1 place
+                char temp = arr[j];
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+            }
+        }
+		System.err.println(Arrays.toString(arr));
+	}
+	
     public static void main(String[] args) 
     {
+    	try {
+	        String methodName = "rotateArray";
+	        int param = 0;
+	        Class c = Class.forName("interview.Programs");
+			Method m = c.getDeclaredMethod(methodName, null);
+			m.invoke(c, null);
+//			Method m = c.getDeclaredMethod(methodName, int.class);
+//			m.invoke(c, param);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
         int val = 0;
         
         switch (val) {
@@ -795,19 +891,6 @@ public class Programs {
 			break;
 		default:
 			break;
-		}
-        
-        try {
-	        String methodName = "findAllElementsGreaterThanRight";
-	        int param = 0;
-	        Class c = Class.forName("interview.Programs");
-			Method m = c.getDeclaredMethod(methodName, null);
-			m.invoke(c, null);
-//			Method m = c.getDeclaredMethod(methodName, int.class);
-//			m.invoke(c, param);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
     }
 }

@@ -148,17 +148,18 @@ public class App
 	
 	static void Test5()
 	{
-		List<Integer> list = Arrays.asList(10,4,2,6,3,5);
-		List<Integer> result = new ArrayList<>();
-		int b = list.get(list.size()-1); 
-		for(int i = list.size()-1; i >= 0; i--) {
-			int a = list.get(i);
-			if(a > b) {
-				result.add(b);
-				b = a;
-			}
-		}
-		System.err.println(result);
+		int arr[] = { 9, 4, 9, 6, 7, 4 }; 
+		int n = arr.length;
+		
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= n; j++) {
+            	
+            	if (j == n)
+                	System.err.println(arr[i]);
+                if (i != j && arr[i] == arr[j])
+                    break;
+            }
+        }
 	}
   
     /* program to test above function */
