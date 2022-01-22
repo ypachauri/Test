@@ -5,9 +5,15 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,16 +21,31 @@ import mongocrud.User;
 
 public class TestJava8 {
 	
-	static void TestRunnable()
+	static void TestRunnable() throws InterruptedException
     {
 //    	ExecutorService executorService = Executors.newCachedThreadPool();
 //    	ExecutorService executorService2 = Executors.newFixedThreadPool(5);
 //    	ExecutorService executorService3 = Executors.newSingleThreadScheduledExecutor();
     	ExecutorService executorService4 = Executors.newSingleThreadExecutor();
+    	Executor executor = Executors.newSingleThreadExecutor();
     	Runnable run = () -> {
     		System.err.println("Running...");
     	};
+    	Predicate test = (a) -> {
+    		System.err.println("Test Called...");
+    		return true;
+    	};
+//    	Callable<Future> call = () -> {
+//    		System.err.println("Running...");
+//    		return f;
+//    	};
     	executorService4.execute(run);
+    	executorService4.submit(run);
+    	executorService4.isShutdown();
+    	executorService4.isTerminated();
+    	executorService4.awaitTermination(500, TimeUnit.MILLISECONDS);
+    	
+    	executor.execute(run);
     	System.err.println(executorService4.submit(run));
     }
     
@@ -57,6 +78,8 @@ public class TestJava8 {
 //    	System.err.println(aggregateResults);
     	
     	List<User> filterResults = users.stream().filter(p -> p.getId() > 3).collect(Collectors.toList());
+    	List<String> names = users.stream().filter(p -> p.getId() > 3).map(User::getName).collect(Collectors.toList());
+    	List<String> names2 = users.stream().filter(p -> p.getId() > 3).map(user -> user.getName()).collect(Collectors.toList());
     	System.err.println(filterResults);
     	
     	Stream<User> distinctResults = users.stream().distinct();
@@ -89,7 +112,7 @@ public class TestJava8 {
     	sortedResults.forEach(System.out::println);
     }
     
-    static void Test()
+    static void ParallelStreamForEachTest()
     {
     	List<Integer> list = Arrays.asList(10, 19, 20, 1, 2);
     	list.stream().parallel().forEachOrdered(System.out::println);

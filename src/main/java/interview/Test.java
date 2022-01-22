@@ -9,10 +9,16 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class Test {
+	
 	public static void main(String[] args)
 	{
 		Map mp = new ConcurrentHashMap<>();
-		mp.get(null);
+		//mp.get(null);
+		Test test = new Test();
+//		test.T(10.5);
+		test.T(11l);
+		test.T('a');
+		System.err.println(finallyReturnTest());
 	}
 	
 	static void flatMap()
@@ -42,5 +48,15 @@ public class Test {
 			finally {
 				return 3;
 			}
+	}
+	
+	static void T(int i)
+	{
+		System.err.println("Integer "+i);
+	}
+	
+	static void T(float f)
+	{
+		System.err.println("Float "+f);
 	}
 }

@@ -77,10 +77,10 @@ public class Programs {
         int[] arr = { 0, 3, 1, 2, 5, 9, 10, 4 };
         int largest = arr[0];
         int smallest = arr[0];
-        for(int i = 0; i < arr.length; i++)
+        for(int i = 1; i < arr.length; i++)
         {
             if(arr[i] > largest) largest = arr[i];
-            if(arr[i] < smallest) smallest = arr[i];
+            else if(arr[i] < smallest) smallest = arr[i];
         }
         System.out.println("Largest := "+largest+"\nSmallest := "+smallest);
     }
@@ -585,6 +585,14 @@ public class Programs {
 		System.out.println(fact);
 	}
 	
+	static int factorial(int n)
+	{    
+		  if (n == 0)    
+		    return 1;    
+		  else    
+		    return(n * factorial(n-1));    
+	}
+	
 	static void DuplicatesChars()
     {
 		String[] input = {"book","cook","hook"};
@@ -618,7 +626,120 @@ public class Programs {
 		}
 		System.err.println(output);
     }
+	
+	static void segregate0and1() {
+		int arr[] = {0,1,1,0,1,1,0,0};
+        int type0 = 0;
+        int type1 = arr.length - 1;
+         
+        while (type0 < type1) {
+            if (arr[type0] == 1) {
+                // swap
+                arr[type1] = arr[type1]+ arr[type0];
+                arr[type0] = arr[type1]-arr[type0];
+                arr[type1] = arr[type1]-arr[type0];
+                type1--;
+            } else {
+                type0++;
+            }
+        }
+        System.err.println(Arrays.toString(arr));
+    }
+	
+	static void secondHighestFromArray() {
+		 
+	    int arr[] = { 14, 46, 47, 86, 92, 52, 48, 36, 66, 85 };
+	    int largest = arr[0];
+	    int secondLargest = arr[0];
+	    
+//	    System.out.println("The given array is: "+Arrays.toString(arr));
+//	    for (int i = 0; i < arr.length; i++) {
+//	      System.out.print(arr[i]+"\t");
+//	    }
+	    for (int i = 0; i < arr.length; i++) {
+	 
+	      if (arr[i] > largest) {
+	        secondLargest = largest;
+	        largest = arr[i];
+	 
+	      } else if (arr[i] > secondLargest) {
+	        secondLargest = arr[i];
+	 
+	      }
+	   }
+	 
+	    System.out.println("Second largest number is:" + secondLargest);
+	 
+	}
+	
+	static void findAllElementsGreaterThanRight()
+	{
+		int max_so_far = 0;
+		int arr[] = {10,4,2,6,3,5}; 
+
+        for (int i = arr.length - 1; i >= 0; i--)
+        {
+            // if the current element is greater than the maximum so far,
+            // print it and update `max_so_far`
+            if (arr[i] >= max_so_far)
+            {
+                max_so_far = arr[i];
+                System.out.printf("%d ", arr[i]);
+            }
+        }
+	}
     
+	static void checkPalindrome() {  
+        String string = "Kayak";  
+        boolean flag = true;  
+          
+        //Converts the given string into lowercase  
+        string = string.toLowerCase();  
+          
+        //Iterate the string forward and backward, compare one character at a time   
+        //till middle of the string is reached  
+        for(int i = 0; i < string.length()/2; i++){  
+            if(string.charAt(i) != string.charAt(string.length()-i-1)){  
+                flag = false;  
+                break;  
+            }  
+        }  
+        if(flag)  
+            System.out.println("Given string is palindrome");  
+        else  
+            System.out.println("Given string is not a palindrome");  
+    } 
+	
+	static void canFormPalindrome()
+    {
+		String str = "Yash";
+        List<Character> list = new ArrayList<Character>();
+ 
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (list.contains(str.charAt(i)))
+                list.remove((Character)str.charAt(i));
+            else
+                list.add(str.charAt(i));
+        }
+ 
+        // if character length is even
+        // list is expected to be empty or
+        // if character length is odd list size
+        // is expected to be 1
+       
+       
+        // if string length is even
+        if (str.length() % 2 == 0 && list.isEmpty() || (str.length() % 2 == 1 && list.size() == 1))
+//            return true;
+        	System.err.println("TRUE");
+       
+        // if string length is odd
+        else
+//            return false;
+        	System.err.println("FALSE");
+    }
+	
     public static void main(String[] args) 
     {
         int val = 0;
@@ -677,7 +798,7 @@ public class Programs {
 		}
         
         try {
-	        String methodName = "getMissingNoFromArray";
+	        String methodName = "findAllElementsGreaterThanRight";
 	        int param = 0;
 	        Class c = Class.forName("interview.Programs");
 			Method m = c.getDeclaredMethod(methodName, null);
