@@ -1,0 +1,68 @@
+Java 7 (Collection, Multithreading)
+Spring Boot (Rest API and their methods)
+Java 8 (New features & Syntax)
+Hibernate
+SQL Server (Joins)
+Git, Maven
+
+
+Sonar = Sonar is a web based code quality analysis tool for Maven based Java projects
+Swagger = Swagger allows you to describe the structure of your APIs so that machines can read them
+Docker = Docker is an open source software platform to create, deploy and manage virtualized application containers on a common operating system (OS)
+AppDynamics = AppDynamics is a leading Application Performance Management (APM) product. It is a tool that monitors your Application Infrastructure and gives you code level visibility
+OpenAPI = OpenAPI is a specification that is used to describe, produce, consume, and visualize RESTful APIs and web services
+API Design = process of developing application programming interfaces (APIs) that expose data and application functionality for use by developers and users
+Jenkins = an open source automation server which enables developers around the world to reliably build, test, and deploy their software.
+Kafka = Apache Kafka is a Message broker i.e. it helps transmit messages from one system to another - in real time, reliable manner. But that’s not all, Kafka can also work on streams of data and transform them using its stream API
+Splunk is a software platform widely used for monitoring, searching, analyzing and visualizing the machine-generated data in real time
+Kafka’s ability to scale without downtime
+Kafka’s ability to work with high volumes of streams of data and provisions for transforming the aforementioned data, making it an ideal choice when working with big data
+Spring clod config server = Spring's client/server approach for storing and serving distributed configurations across multiple applications and environments
+
+mvn spring-boot:run
+java -jar target/mywebserviceapp-0.0.1-SNAPSHOT.jar
+
+https://stackabuse.com/guide-to-logging-in-spring-boot
+https://walkingtree.tech/logs-monitoring-microservices-using-elk/
+https://www.javatpoint.com/implementing-spring-cloud-bus
+
+A stored procedure is a set of Structured Query Language (SQL) statements with an assigned name, which are stored in a relational database management system (RDBMS) as a group, so it can be reused and shared by multiple programs
+
+pros & cons of microservices = https://cloudacademy.com/blog/microservices-architecture-challenge-advantage-drawback/
+Java 8 GroupBy = https://mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/
+HR & managerial
+Executor Framework
+
+@RepositoryRestResource 
+
+@Lookup lookup method injection is the process to override a Spring bean at the runtime. Injecting prototype scoped bean in singleton bean.
+
+Java executor framework is used to run the Runnable objects without creating new threads every time and mostly re-using the already created threads
+The java.util.concurrent.Executors provide factory methods that are being used to create ThreadPools of worker threads
+
+@EnableAutoConfiguration it automatically creates and registers beans based on both the included jar files in the classpath and the beans defined by us
+a way to automatically configure a Spring application based on the dependencies that are present on the classpath
+
+The main advantage of CompletableFuture over normal Future is that CompletableFuture takes advantage of the extremely powerful stream API and gives you callback handlers to chain your tasks, which is absolutely absent if you use normal Future. That along with providing asynchronous architecture, CompletableFuture is the way to go for handling computation heavy map-reduce tasks, without worrying much about application performance.
+https://www.tutorialspoint.com/differences-between-completablefuture-and-future-in-java-9
+https://examples.javacodegeeks.com/hibernate-inheritance-mapping-example/
+https://www.tipstocode.com/framework/jdbc-authentication-with-h2-database-in-spring-security/
+https://github.com/jigneshkhatri/spring-boot-security-db
+https://habr.com/en/post/513644/
+https://www.javatpoint.com/spring-mvc-custom-validation
+
+@Component is a generic stereotype for any Spring-managed component or bean. 
+@Repository is a stereotype for the persistence layer. 
+@Service is a stereotype for the service layer. 
+@Controller is a stereotype for the presentation layer (spring-MVC).
+
+Linked list questions like reverse a linked list , find midpoint of linked list.
+
+1) If two objects are equal, then they must have the same hash code.
+2) If two objects have the same hash code, they may or may not be equal.
+
+create Custom Annotaion in Spring
+
+Authorization Server − The server that is used to authenticate the user/client. It issues access tokens and tracks them throughout their lifetime.
+
+Resource Server − The API that provides access to the requested resource. It validates the access tokens and provides authorization.
