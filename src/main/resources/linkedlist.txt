@@ -91,6 +91,5 @@ void pairWiseSwap()
         // Store pointer to the next of node to be deleted
         Node next = temp.next.next;
  
-        temp.next
-            = next; // Unlink the deleted node from list
+        temp.next = next; // Unlink the deleted node from list
     }
