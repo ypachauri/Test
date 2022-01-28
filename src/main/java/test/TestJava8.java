@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
@@ -52,14 +53,12 @@ public class TestJava8 {
     static void TestGroupBy()
     {
     	List<Integer> list = Arrays.asList(2,5,3,6,9,1,7,4,0,8);
+    	// sum
     	Object result = list.stream().mapToInt(a -> a).sum();
+    	// max
     	result = list.stream().max(Comparator.comparing(Integer::intValue));
+    	// group by
     	result = list.stream().collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()));
-    	
-    	List<String> items =
-                Arrays.asList("apple", "apple", "banana",
-                        "apple", "orange", "banana", "papaya");
-    	result = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     	
     	System.err.println(result);
     }
@@ -74,18 +73,16 @@ public class TestJava8 {
     	users.add(new User(4, "Akash", "Programmer", true));
     	users.add(new User(6, "Ankit", "UI dev", true));
     	
+    	// group by
     	Map<String, Integer> aggregateResults = users.stream().collect(Collectors.groupingBy(User::getName, Collectors.summingInt(User::getId)));
 //    	System.err.println(aggregateResults);
     	
-    	List<User> filterResults = users.stream().filter(p -> p.getId() > 3).collect(Collectors.toList());
+    	// filer names
     	List<String> names = users.stream().filter(p -> p.getId() > 3).map(User::getName).collect(Collectors.toList());
     	List<String> names2 = users.stream().filter(p -> p.getId() > 3).map(user -> user.getName()).collect(Collectors.toList());
-    	System.err.println(filterResults);
+    	System.err.println(names);
     	
-    	Stream<User> distinctResults = users.stream().distinct();
-//    	distinctResults.forEach(System.out::println);
-    	
-//    	Stream<User> sortedResults = users.stream().sorted(Comparator.comparingInt(User::getId));
+    	// sort
     	Stream<User> sortedResults = users.stream().sorted(Comparator.comparing(User::getName));
     	sortedResults.forEach(System.out::println);
     }
@@ -103,10 +100,6 @@ public class TestJava8 {
     	Map<String, Long> aggregateResults = list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     	System.err.println(aggregateResults);
     	
-    	Stream<String> distinctResults = list.stream().distinct();
-//    	distinctResults.forEach(System.out::println);
-    	
-//    	Stream<User> sortedResults = users.stream().sorted(Comparator.comparingInt(User::getId));
     	Stream<String> sortedResults = list.stream().sorted(Comparator.comparing(Function.identity()));
 //    	list.sort(Comparator.reverseOrder());
     	sortedResults.forEach(System.out::println);
@@ -118,12 +111,21 @@ public class TestJava8 {
     	list.stream().parallel().forEachOrdered(System.out::println);
     	list.stream().parallel().forEach(System.err::println);
     }
+    
+    static void TestOptional()
+    {
+    	Optional<String> optional = Optional.ofNullable(null);
+    	System.err.println(optional);
+    	System.err.println(optional.isPresent());
+    	Optional<String> optional2 = Optional.of(null);
+    	System.err.println(optional2.isPresent());
+    }
   
     /* program to test above function */
     public static void main(String args[]) 
     { 
 //    	TestGroupBy();
-    	TestObject();
+    	TestOptional();
 //    	TestList();
 //    	Test();
     }

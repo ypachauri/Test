@@ -823,10 +823,66 @@ public class Programs {
 		System.err.println(Arrays.toString(arr));
 	}
 	
+	public static void allPalindromeSubstring()
+    {
+		String s = "hellolle";
+        List<String> list = new ArrayList<String>();
+ 
+        // moving the pivot from starting till end of the string
+        for (float pivot = 0; pivot < s.length(); pivot += .5) {
+ 
+            // set radius to the first nearest element
+            // on left and right
+            float palindromeRadius = pivot - (int)pivot;
+ 
+            // if the position needs to be compared has an element
+            // and the characters at left and right matches
+            while ((pivot + palindromeRadius) < s.length()
+                   && (pivot - palindromeRadius) >= 0
+                   && s.charAt((int)(pivot - palindromeRadius))
+                          == s.charAt((int)(pivot + palindromeRadius))) {
+ 
+                list.add(s.substring((int)(pivot - palindromeRadius),
+                                     (int)(pivot + palindromeRadius + 1)));
+ 
+                // increasing the radius by 1 to point to the
+                // next elements in left and right
+                palindromeRadius++;
+            }
+        }
+ 
+        System.err.println(list.size());
+        System.err.println(list);
+    }
+	
+	static void isEven()
+    {
+		int n = 11;
+        boolean isEven = true;
+         
+        for (int i = 1; i <= n; i++)
+            isEven = !isEven;
+             
+        System.err.println(isEven);
+    }
+	
+	static void isOddOrEven()
+	{ 
+		int number = 11;
+		if((number & 1) == 0)
+		{ 
+			System.out.println("Even"); 
+		}
+		else
+		{ 
+			System.out.println("Odd"); 
+		} 
+	}
+	
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "rotateArray";
+	        String methodName = "isOddOrEven";
 	        int param = 0;
 	        Class c = Class.forName("interview.Programs");
 			Method m = c.getDeclaredMethod(methodName, null);
