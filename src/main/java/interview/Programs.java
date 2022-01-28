@@ -823,6 +823,27 @@ public class Programs {
 		System.err.println(Arrays.toString(arr));
 	}
 	
+	static void calcAngle()
+	{
+		int h = 9;
+		int m = 15;
+		
+		if(h == 12) h = 0;
+        if(m == 60) m = 0;
+		// Calculate the angles moved by hour and minute hands
+        // with reference to 12:00
+        int hour_angle = (int)(0.5 * (h*60 + m));
+        int minute_angle = (int)(6*m);
+ 
+        // Find the difference between two angles
+        int angle = Math.abs(hour_angle - minute_angle);
+ 
+        // smaller angle of two possible angles
+        angle = Math.min(360-angle, angle);
+        
+        System.err.println(angle);
+	}
+	
 	public static void allPalindromeSubstring()
     {
 		String s = "hellolle";
@@ -855,17 +876,6 @@ public class Programs {
         System.err.println(list);
     }
 	
-	static void isEven()
-    {
-		int n = 11;
-        boolean isEven = true;
-         
-        for (int i = 1; i <= n; i++)
-            isEven = !isEven;
-             
-        System.err.println(isEven);
-    }
-	
 	static void isOddOrEven()
 	{ 
 		int number = 11;
@@ -882,7 +892,7 @@ public class Programs {
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "isOddOrEven";
+	        String methodName = "calcAngle";
 	        int param = 0;
 	        Class c = Class.forName("interview.Programs");
 			Method m = c.getDeclaredMethod(methodName, null);

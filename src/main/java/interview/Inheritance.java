@@ -1,5 +1,9 @@
 package interview;
 
+interface I
+{
+	
+}
 class A
 {
 	A()
@@ -22,7 +26,7 @@ class B extends A
 		System.out.println("B Method Called");
 	}
 }
-class C extends B
+class C extends B implements I
 {
 	C()
 	{
@@ -38,6 +42,9 @@ public class Inheritance
 	public static void main(String[] args) throws Exception
 	{
 		A a = new C();
+//		C c = new A();
+		I i = new C();
+//		I i = new A();
 		a.Method();
 //		System.out.println(cls.Method2());
 	}
