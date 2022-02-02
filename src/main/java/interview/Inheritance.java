@@ -21,7 +21,7 @@ class B extends A
 	{
 		System.out.println("B Constructor Called");
 	}
-	void Method() throws ArithmeticException
+	protected void Method() throws ArithmeticException
 	{
 		System.out.println("B Method Called");
 	}
@@ -32,7 +32,7 @@ class C extends B implements I
 	{
 		System.out.println("C Constructor Called");
 	}
-	void Method()
+	public void Method()
 	{
 		System.out.println("C Method Called");
 	}

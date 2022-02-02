@@ -1,37 +1,19 @@
 package interview;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 public class Test {
 	
 	public static void main(String[] args)
 	{
 		Map mp = new ConcurrentHashMap<>();
-		//mp.get(null);
+//		mp.get(null);
+		
 		Test test = new Test();
-//		test.T(10.5);
-		test.T(11l);
-		test.T('a');
-		System.err.println(finallyReturnTest());
-	}
-	
-	static void flatMap()
-	{
-		Map<String, List<String>> people = new HashMap<>();
-    	people.put("John", Arrays.asList("555-1123", "555-3389"));
-    	people.put("Mary", Arrays.asList("555-2243", "555-5264"));
-    	people.put("Steve", Arrays.asList("555-6654", "555-3242"));
-    	 
-    	List<String> phones = people.values().stream()
-    	  .flatMap(Collection::stream)
-    	    .collect(Collectors.toList());
-    	System.err.println(phones);
+//		test.nullChk(null);
+		
+//		System.err.println(finallyReturnTest());
 	}
 	
 	static int finallyReturnTest()
@@ -50,13 +32,16 @@ public class Test {
 			}
 	}
 	
-	static void T(int i)
+	static void nullChk(String s)
 	{
-		System.err.println("Integer "+i);
+		System.err.println("String");
 	}
-	
-	static void T(float f)
+	static void nullChk(Object o)
 	{
-		System.err.println("Float "+f);
+		System.err.println("Object");
+	}
+	static void nullChk(Integer i)
+	{
+		System.err.println("Integer");
 	}
 }
