@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -889,10 +890,59 @@ public class Programs {
 		} 
 	}
 	
+	static void sortList()
+	{
+		List list = new ArrayList<>();
+		list.add(5);
+		list.add("one");
+		list.add("five");
+		list.add(5);
+		list.add(2);
+		list.add("three");
+		list.add("five");
+		list.add(2);
+		list.add(1);
+		list.add(1);
+		list.add("four");
+		// Ans - 1,1,2,2,5,5,five,five,four,one,three
+		
+		Collections.sort(list, new Comparator<Object>() {
+			@Override
+			public int compare(Object o1, Object o2) {
+				// TODO Auto-generated method stub
+				if(o1 instanceof Integer && o2 instanceof Integer) {
+					return (Integer) o1 - (Integer) o2;
+				} else if(o1 instanceof String && o2 instanceof String) {
+					return ((String) o1).compareTo((String) o2);
+				} else if(o1 instanceof Integer) {
+					return -1;
+				} else if(o2 instanceof Integer) {
+					return 1;
+				}
+				return 0;
+			}
+		});
+		
+		System.err.println(list);
+	}
+	
+	static void reverseString()
+	{
+		String str = "Yash";
+		String result = "";
+		
+		for(int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			result = ch + result;
+		}
+		
+		System.err.println(result);
+	}
+	
     public static void main(String[] args) 
     {
     	try {
-	        String methodName = "calcAngle";
+	        String methodName = "reverseString";
 	        int param = 0;
 	        Class c = Class.forName("interview.Programs");
 			Method m = c.getDeclaredMethod(methodName, null);
